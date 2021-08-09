@@ -124,6 +124,60 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 			break;
 		}
 	}
+}
+//返回1表示棋盘满了，返回0表示棋盘没满
+int IsFull(char board[ROW][COL],int row,int col)
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < row; i++) 
+	{
+		for (j = 0; j < col; j++) 
+		{
+			if (board[i][j] == ' ') 
+			{
+				return 1;
+			}
+		}
+	}
 
 
+}
+char IsWin(char board[ROW][COL], int row, int col)
+{
+	int i = 0;
+	int j = 0;
+
+	//判断横三行是否除了' '之外都相等
+	for (i = 0; i < row; i++)
+	{
+		if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ')
+		{
+			return board[i][0];
+		}
+	}
+	//判断竖三列是否除了' '之外都相等
+	for (i = 0; i < row; i++)
+	{
+		if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+		{
+			return board[0][i];
+		}
+	}
+	//判断交叉是否除了' '之外都相等
+	if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ')
+	{
+		return board[0][0];
+	}
+	if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')
+	{
+		return board[0][2];
+	}
+	//判断是否平局
+
+	if (1 == IsFull(board,row,col))
+	{
+		return 'C';
+	}
+	return 'Q';
 }

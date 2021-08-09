@@ -22,14 +22,39 @@ void game()
 	//下棋
 	while (1)
 	{
+		char ret = '0';
 		//玩家下棋
 		PlayerMove(board, ROW, COL);
 		//打印棋盘
 		DisplayBoard(board, ROW, COL);
+		//判断玩家是否赢
+		ret = IsWin(board,ROW,COL);
+		if (ret == '*')
+		{
+			printf("玩家赢！\n");
+			break;
+		}
+		if (ret == 'Q') 
+		{
+			printf("平局！\n");
+			break;
+		}
 		//电脑下棋
 		ComputerMove(board, ROW, COL);
 		//打印棋盘
 		DisplayBoard(board, ROW, COL);
+		//判断电脑是否赢
+		ret=IsWin(board,ROW,COL);
+		if (ret == '#')
+		{
+			printf("电脑赢！\n");
+			break;
+		}
+		if (ret == 'Q')
+		{
+			printf("平局！\n");
+			break;
+		}
 	}
 
 }

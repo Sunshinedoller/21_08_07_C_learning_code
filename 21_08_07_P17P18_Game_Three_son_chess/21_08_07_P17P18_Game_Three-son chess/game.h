@@ -9,4 +9,10 @@ void InitBoard (char board[ROW][COL], int row, int col);
 void DisplayBoard(char board[ROW][COL], int row, int col);
 void PlayerMove(char board[ROW][COL], int row, int col);
 void ComputerMove(char board[ROW][COL], int row, int col);
-
+//判断函数要能判断四种状态
+//玩家赢返回字符-'*'
+//电脑赢返回字符-'#'
+//平局返回-'Q'
+//继续返回-'C'
+char IsWin(char board[ROW][COL], int row, int col);
+ 
